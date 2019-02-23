@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="433.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListeDesOffresPersonnaliseController">
+   <children>
+      <ListView fx:id="table" layoutX="42.0" layoutY="41.0" prefHeight="303.0" prefWidth="487.0" />
+      <Button fx:id="Accepter" layoutX="608.0" layoutY="166.0" mnemonicParsing="false" onAction="#AccepterDemande" text="Accepter" />
+      <Button fx:id="Refuser" layoutX="608.0" layoutY="41.0" mnemonicParsing="false" onAction="#RefuserDemande" text="Refuser" />
+      <TextField fx:id="text_id" layoutX="554.0" layoutY="248.0" visible="false" />
+      <TextField fx:id="id_pres" layoutX="554.0" layoutY="248.0" visible="false" />
+      <TextField fx:id="date_rdvP" layoutX="554.0" layoutY="248.0" visible="false" />
+      <TextField fx:id="id_user" layoutX="554.0" layoutY="248.0" visible="false" />
+   </children>
+</AnchorPane>
