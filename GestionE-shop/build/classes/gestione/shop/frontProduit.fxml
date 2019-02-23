@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane id="AnchorPane" prefHeight="759.0" prefWidth="1209.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestione.shop.FrontProduitController">
+   <children>
+      <ImageView fx:id="image" fitHeight="227.0" fitWidth="294.0" layoutX="285.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true" />
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="247.0" layoutX="781.0" layoutY="180.0" stroke="BLACK" strokeType="INSIDE" width="273.0" />
+   </children>
+</AnchorPane>
