@@ -6,7 +6,7 @@
 package gestione.shop;
 
 import Entities.Produit;
-import Services.Produit.ProduitService;
+import Service.ProduitService;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;

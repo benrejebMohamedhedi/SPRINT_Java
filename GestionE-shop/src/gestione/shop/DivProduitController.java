@@ -71,16 +71,6 @@ public void LoadValues(Produit e) throws IOException {
 
         prix.setText(String.valueOf(e.getPrix())+" DT");
         id.setText(String.valueOf(e.getId_produit()));
-        
-       
-
-        
-
-       
-//        sq.setPadding(new Insets(-10, -10, -10, -10));
-
-       //        circle.setFill(new ImagePattern(imageURI));
-//       qualite.setRating(e.getMoyqualite());
         Image imageURI2 = new Image("file:C://wamp64/www/GestionE_Shop/uploads/" + e.getImage().toString());
         rectangle.setFill(new ImagePattern(imageURI2));
       
@@ -90,11 +80,8 @@ public void LoadValues(Produit e) throws IOException {
                 if (event.getClickCount() == 2) {
                     doubleclick(event, e);
                 }
-
             }
         });
-    
-
       }
         public void doubleclick(MouseEvent event, Produit selectedetab) {
         if (event.getClickCount() == 2) {

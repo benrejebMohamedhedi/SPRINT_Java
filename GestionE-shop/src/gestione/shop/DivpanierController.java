@@ -7,7 +7,7 @@ package gestione.shop;
 
 import Entities.Commande;
 import Entities.Produit;
-import Services.Commande.CommandeService;
+import Service.CommandeService;
 import com.jfoenix.controls.JFXListView;
 import java.net.URL;
 import java.sql.Connection;
@@ -28,7 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
-import serviceLigneCom.Ligne_ComService;
+import Service.Ligne_ComService;
 
 /**
  * FXML Controller class

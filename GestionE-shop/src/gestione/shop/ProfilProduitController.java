@@ -8,7 +8,7 @@ package gestione.shop;
 import DB.MyDBcon;
 import Entities.Ligne_Commande;
 import Entities.Produit;
-import Services.Produit.ProduitService;
+import Service.ProduitService;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXDialog;
@@ -59,7 +59,7 @@ import javafx.util.Duration;
 import static org.apache.xalan.lib.ExsltDatetime.date;
 import org.controlsfx.control.Notifications;
 import org.controlsfx.control.Rating;
-import serviceLigneCom.Ligne_ComService;
+import Service.Ligne_ComService;
 
 /**
  * FXML Controller class
@@ -329,10 +329,8 @@ id_product =id ;
                     pst.setInt(1, iduser);
                     ResultSet res = pst.executeQuery();
                     
-                    while (res.next()) {
-                        
-                        id_panier=res.getInt("id_commande");
-                        
+                    while (res.next()) {                       
+                        id_panier=res.getInt("id_commande");                        
                     }
                     if (existePanier(iduser)) {
                         String req = "select id_produit,quantite from `ligne_commande` where id_commande=?";
@@ -346,6 +344,8 @@ id_product =id ;
                             if (existeProd(id_product)) {
                                 System.out.println("Produit déjà ajouté");
                                 lc.modifierQuantite(resultat.getInt("quantite")+1, etab);
+                                ProduitService x=new ProduitService();
+                                x.modifierQt(resultat.getInt("quantite"),id_product);
                             } else {
                                lc.ajouterLigne(id_product,id_panier);
                                 }

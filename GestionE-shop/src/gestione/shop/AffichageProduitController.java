@@ -6,11 +6,11 @@
 package gestione.shop;
 
 import Entities.Produit;
-import Services.Produit.ProduitService;
-import Services.Produit.ProduitService;
-import Services.Produit.ProduitService;
-import Services.Produit.ProduitService;
-import Services.Produit.ProduitService;
+import Service.ProduitService;
+import Service.ProduitService;
+import Service.ProduitService;
+import Service.ProduitService;
+import Service.ProduitService;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;

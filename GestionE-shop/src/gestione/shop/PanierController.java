@@ -12,7 +12,7 @@ import com.jfoenix.controls.JFXTextField;
 
 
 import Entities.Produit;
-import Services.Commande.CommandeService;
+import Service.CommandeService;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXListView;
@@ -31,11 +31,14 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -61,14 +64,18 @@ public class PanierController implements Initializable {
     private ScrollPane pane;
      private ObservableList<Produit> data;
     @FXML
-    private JFXComboBox<?> tri;
-    @FXML
     private FontAwesomeIconView goBack;
+    @FXML
+    private Label total;
+    @FXML
+    private Button payment;
+    @FXML
+    private Button facture;
 
     /**
      * Initializes the controller class.
      */
-     
+      
      
 
     @Override
@@ -82,6 +89,7 @@ public class PanierController implements Initializable {
             FadeTransition ft = new FadeTransition(Duration.millis(1500));
             
             CommandeService ps= new CommandeService();
+            total.setText("Prix Totale = "+ps.getPrixTotale()+"Dt");
                
             data = ps.loadPanier();
             for ( Produit d : data) {
@@ -115,7 +123,20 @@ public class PanierController implements Initializable {
             b.getChildren().add(c);
             b.setPrefWidth(1000);
             pane.setContent(b);
-            
+             facture.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getClickCount() == 2) {
+                    try {
+                        doubleclick(event,ps.getIdpanieru(1));
+                    } catch (SQLException ex) {
+                        Logger.getLogger(PanierController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+
+               
+        });
                     
                     
                 }catch (SQLException ex) {
@@ -138,8 +159,32 @@ public class PanierController implements Initializable {
 ////        editicon.setVisible(false);
 ////        deleteicon.setVisible(false);
 
-    }
 
+    }
+ private void doubleclick(MouseEvent event, int idp) throws SQLException {
+                     if (event.getClickCount() == 2) {
+            try {
+                
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Factures.fxml"));
+                Parent root = loader.load();
+                FacturesController DDC = loader.getController();
+               
+                DDC.Lafacture(idp);
+               
+                Stage ss=new Stage();
+                Scene sc = new Scene(root);
+                ss.setScene(sc);
+                ss.setWidth(1288);
+                ss.setHeight(750);
+                
+                
+                ss.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(PanierController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+                }
     @FXML
     private void RechercheDynamique(KeyEvent event) throws SQLException {
                  CommandeService ps= new CommandeService();
@@ -217,6 +262,11 @@ public class PanierController implements Initializable {
     private void back(MouseEvent event) throws IOException {
         Parent root= FXMLLoader.load(getClass().getResource("ListProduit.fxml"));
                goBack.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void PasserAuPayment(ActionEvent event) {
+
     }
 
 

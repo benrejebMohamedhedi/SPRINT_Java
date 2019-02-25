@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,9 +17,10 @@
       </Label>
       <JFXTextField fx:id="recherchetext" layoutX="114.0" layoutY="127.0" onKeyReleased="#RechercheDynamique" prefHeight="24.0" prefWidth="239.0" promptText="Rechercher votre Produit..." />
       <FontAwesomeIconView glyphName="SEARCH" layoutX="331.0" layoutY="147.0" size="20" wrappingWidth="24.0" />
-      <ScrollPane fx:id="pane" layoutX="114.0" layoutY="182.0" prefHeight="723.0" prefWidth="1041.0" />
-      <JFXComboBox fx:id="tri" layoutX="1101.0" layoutY="136.0" />
-      <FontAwesomeIconView fill="#ff214f" glyphName="SLIDERS" layoutX="106.0" layoutY="51.0" size="22" x="970.0" y="117.0" />
+      <ScrollPane fx:id="pane" layoutX="18.0" layoutY="170.0" prefHeight="699.0" prefWidth="1348.0" />
       <FontAwesomeIconView fx:id="goBack" glyphName="ARROW_LEFT" layoutX="24.0" layoutY="41.0" onMouseClicked="#back" size="20" />
+      <Label fx:id="total" layoutX="945.0" layoutY="148.0" prefHeight="21.0" prefWidth="190.0" />
+      <Button fx:id="payment" layoutX="627.0" layoutY="883.0" mnemonicParsing="false" onAction="#PasserAuPayment" prefHeight="31.0" prefWidth="109.0" text="payment" />
+      <Button fx:id="facture" layoutX="743.0" layoutY="883.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="121.0" text="Facture" />
    </children>
 </AnchorPane>

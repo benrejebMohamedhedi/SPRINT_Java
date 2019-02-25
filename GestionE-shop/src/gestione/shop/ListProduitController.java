@@ -6,7 +6,7 @@
 package gestione.shop;
 
 import Entities.Produit;
-import Services.Produit.ProduitService;
+import Service.ProduitService;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;

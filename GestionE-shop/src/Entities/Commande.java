@@ -15,7 +15,7 @@ public class Commande {
     int id_commande;
     int Id_user ;
     Date date_com ;
-    float total ;
+    int total ;
     boolean etat ;
 
     public Commande(int id_us, int id_us0, Date da, float tot, boolean et) {
@@ -26,6 +26,10 @@ public class Commande {
         this.etat=et;
     }
 
+    public Commande() {
+       
+    }
+
     public boolean getEtat() {
         return etat;
     }
@@ -34,14 +38,14 @@ public class Commande {
         this.etat = etat;
     }
 
-    public Commande(int id_commande, int Id_user, Date date_com, float total) {
+    public Commande(int id_commande, int Id_user, Date date_com, int total) {
         this.id_commande = id_commande;
         this.Id_user = Id_user;
         this.date_com = date_com;
         this.total = total;
     }
 
-    public Commande(int Id_user, Date date_com, float total) {
+    public Commande(int Id_user, Date date_com, int total) {
         this.Id_user = Id_user;
         this.date_com = date_com;
         this.total = total;
@@ -59,7 +63,7 @@ public class Commande {
         return date_com;
     }
 
-    public float getTotal() {
+    public int getTotal() {
         return total;
     }
 
@@ -75,7 +79,7 @@ public class Commande {
         this.date_com = date_com;
     }
 
-    public void setTotal(float total) {
+    public void setTotal(int total) {
         this.total = total;
     }
 

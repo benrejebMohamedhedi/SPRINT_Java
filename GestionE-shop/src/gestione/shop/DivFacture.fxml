@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="84.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestione.shop.DivFactureController">
+   <children>
+      <Label fx:id="nomP" layoutX="14.0" layoutY="32.0" prefHeight="21.0" prefWidth="94.0" />
+      <Label fx:id="refP" layoutX="121.0" layoutY="32.0" prefHeight="21.0" prefWidth="85.0" />
+      <Label fx:id="qt" layoutX="521.0" layoutY="32.0" />
+      <Label fx:id="prix" layoutX="563.0" layoutY="32.0" />
+      <Label layoutX="44.0" layoutY="53.0" prefHeight="21.0" prefWidth="534.0" text="----------------------------------------------------------------------------------------" />
+   </children>
+</AnchorPane>

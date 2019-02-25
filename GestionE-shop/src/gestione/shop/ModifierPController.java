@@ -6,8 +6,8 @@
 package gestione.shop;
 
 import Entities.Produit;
-import Services.Produit.ProduitService;
-import Services.Produit.ProduitService;
+import Service.ProduitService;
+import Service.ProduitService;
 import java.io.IOException;
 import static java.lang.Math.E;
 import java.net.URL;
