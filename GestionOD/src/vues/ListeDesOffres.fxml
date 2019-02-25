@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListeDesOffresController">
+   <children>
+      <ListView fx:id="table" prefHeight="363.0" prefWidth="333.0" />
+      <DatePicker fx:id="search" layoutX="354.0" layoutY="26.0" />
+   </children>
+</AnchorPane>
