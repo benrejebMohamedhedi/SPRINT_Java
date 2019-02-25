@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/Entity/SendMail.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/gui_user/Inscription.fxml</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/Entity/Prestataire.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/Entity/Client.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/Entity/UserSession.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/gui_user/LoginUser.fxml</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/Services/Service_Client.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/gui_user/LoginController.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/Services/Service_Prestataire.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/gui_user/Main.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/gui_user/AcceuilClient.fxml</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/styling/fullpackstyling.css</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/controllers/AcceuilClientController.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/Entity/User.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/Services/CRUD.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/Services/UserService.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/gui_user/InscriptionController.java</file>
+            <file>file:/Users/user/NetBeansProjects/GUI_User/src/Database/ConnexionDB.java</file>
+        </group>
+    </open-files>
+</project-private>
