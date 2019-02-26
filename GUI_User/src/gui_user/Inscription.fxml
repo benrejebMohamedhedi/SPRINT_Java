@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" prefHeight="725.0" prefWidth="675.0" style="-fx-background-color: #424142;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui_user.InscriptionController">
+   <children>
+      <TabPane layoutX="43.0" layoutY="33.0" prefHeight="604.0" prefWidth="532.0" style="-fx-background-color: #4361AD #4361AD;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="43.0" AnchorPane.rightAnchor="43.0" AnchorPane.topAnchor="33.0">
+        <tabs>
+          <Tab text="Prestataire">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="533.0" prefWidth="504.0">
+                     <children>
+                        <GridPane layoutX="19.0" layoutY="20.0" prefHeight="482.0" prefWidth="552.0" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="20.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="254.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.0" minWidth="10.0" prefWidth="299.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TextField fx:id="txtCINP" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextField fx:id="txtNumP" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                              <TextField fx:id="txtUsernameP" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="txtEmailP" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="txtPrenomP" prefHeight="27.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtNomP" GridPane.columnIndex="1" />
+                              <Label text="Nom:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" />
+                              <Label text="Prenom:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="1" />
+                              <Label text="Email:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="2" />
+                              <Label text="Username:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="3" />
+                              <Label text="Password:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="4" />
+                              <Label text="CIN:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="6" />
+                              <Label text="Sexe:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="7" />
+                              <Label text="Date de naissance:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="8" />
+                              <Label text="Adresse:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="9" />
+                              <Label text="Numero telephone:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="10" />
+                              <Label text="Photo de profil:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="11" />
+                              <Label text="Spécialité:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="12" />
+                              <Button mnemonicParsing="false" text="Upload..." GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                              <PasswordField fx:id="pwdP" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <PasswordField fx:id="pwdCP" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label text="Password Confirmation:" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="5" />
+                              <DatePicker fx:id="dateP" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <ComboBox fx:id="Specialite" prefWidth="152.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                              <TextField fx:id="txtAdresseP" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <ComboBox fx:id="SexeP" prefHeight="27.0" prefWidth="155.0" promptText="Homme / Femme" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                           </children>
+                        </GridPane>
+                        <Button fx:id="btnInscriptionP" layoutX="396.0" layoutY="578.0" mnemonicParsing="false" onAction="#InscriptionP" prefHeight="30.0" prefWidth="80.0" text="S'inscrire" />
+                        <Button fx:id="btnCancel" cancelButton="true" layoutX="491.0" layoutY="578.0" mnemonicParsing="false" onAction="#handlecancel" prefHeight="30.0" prefWidth="80.0" text="Cancel" />
+                        <Label fx:id="l3" layoutX="36.0" layoutY="549.0" />
+                        <Label fx:id="lblErr2" layoutX="14.0" layoutY="502.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="btnInscriptionC" text="Client">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane prefHeight="502.0" prefWidth="532.0" AnchorPane.bottomAnchor="69.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="20.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="255.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="382.0" minWidth="10.0" prefWidth="298.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label alignment="CENTER_RIGHT" text="Nom:" textFill="#fff9ff">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets></Label>
+                              <Label text="Prenom:" textFill="#fff9ff" GridPane.rowIndex="1" />
+                              <Label text="Email:" textFill="#fff9ff" GridPane.rowIndex="2" />
+                              <Label text="Username:" textFill="#fff9ff" GridPane.rowIndex="3" />
+                              <Label text="Password:" textFill="#fff9ff" GridPane.rowIndex="4" />
+                              <Label text="CIN:" textFill="#fff9ff" GridPane.rowIndex="6" />
+                              <Label text="Sexe:" textFill="#fff9ff" GridPane.rowIndex="7" />
+                              <Label text="Date de naissance:" textFill="#fff9ff" GridPane.rowIndex="8" />
+                              <Label text="Adresse:" textFill="#fff9ff" GridPane.rowIndex="9" />
+                              <Label text="Numero telephone:" textFill="#fff9ff" GridPane.rowIndex="10" />
+                              <Label text="Photo de profil:" textFill="#fff9ff" GridPane.rowIndex="11" />
+                              <Button mnemonicParsing="false" text="Upload..." GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                              <Label text="Password Confirmation:" textFill="#fff9ff" GridPane.rowIndex="5" />
+                              <TextField fx:id="txtNomC" GridPane.columnIndex="1" />
+                              <TextField fx:id="txtPrenomC" prefHeight="27.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="txtEmailC" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <TextField fx:id="txtUsernameC" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <PasswordField fx:id="pwdC" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <PasswordField fx:id="pwdCC" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField fx:id="txtCINC" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextField fx:id="txtNumC" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                              <TextField fx:id="txtAdresseC" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <DatePicker fx:id="dateC" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                              <Label fx:id="lblErr" GridPane.rowIndex="12" />
+                              <ComboBox fx:id="SexeC" prefHeight="29.0" prefWidth="154.0" promptText="Homme / Femme" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                           </children>
+                        </GridPane>
+                        <Button layoutX="491.0" layoutY="578.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="Cancel" />
+                        <Button fx:id="btnInscriptionP1" layoutX="396.0" layoutY="578.0" mnemonicParsing="false" onAction="#InscriptionC" prefHeight="30.0" prefWidth="80.0" text="S'inscrire" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
