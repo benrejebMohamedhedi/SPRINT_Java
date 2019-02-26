@@ -56,6 +56,18 @@ public class FactureService {
         else
             System.out.println("facture existe");
     }
+   public String getEmail(int id) throws SQLException
+   {
+         String email=null;
+         PreparedStatement pt = cnx.prepareStatement("SELECT fos_user.email FROM `fos_user`,facture  WHERE facture.id_facture=? ");
+        pt.setInt(1, id);
+        ResultSet resultat = pt.executeQuery();
+ while (resultat.next()) {
+      email=resultat.getString("email");
+            }
+ return email;
+       
+   }
    
     public void ajouterfacture(Commande c,int id) throws SQLException
     {

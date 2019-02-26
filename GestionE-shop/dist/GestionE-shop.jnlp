@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="GestionE-shop.jar" size="681348" download="eager" />
+    <jar href="GestionE-shop.jar" size="684138" download="eager" />
     <jar href="lib\Bulk_SMS_Library.jar" size="3292" download="eager" />
     <jar href="lib\GMapsFX-2.12.0.jar" size="207618" download="eager" />
     <jar href="lib\activation.jar" size="124332" download="eager" />

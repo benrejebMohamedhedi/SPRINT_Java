@@ -5,7 +5,11 @@
  */
 package gestione.shop;
 
+import Entities.Facture;
+import Service.FactureService;
+import Service.SendEmail;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -34,9 +38,8 @@ public class EmailFormController implements Initializable {
         // TODO
     }    
 
-    void sendemail(int idp) {
-        
-
+    void sendemail(int idp) throws SQLException {
+       
     }
     
 }

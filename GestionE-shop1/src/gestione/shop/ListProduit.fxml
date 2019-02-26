@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="940.0" prefWidth="1370.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestione.shop.ListProduitController">
+   <children>
+      <Label layoutX="94.0" layoutY="35.0" prefHeight="101.0" prefWidth="579.0" text="Liste des Produit">
+         <font>
+            <Font name="Bodoni MT Condensed" size="69.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="recherchetext" layoutX="114.0" layoutY="127.0" onKeyReleased="#RechercheDynamique" prefHeight="24.0" prefWidth="239.0" promptText="Rechercher votre Produit..." />
+      <FontAwesomeIconView glyphName="SEARCH" layoutX="331.0" layoutY="147.0" size="20" wrappingWidth="24.0" />
+      <ScrollPane fx:id="pane" layoutX="114.0" layoutY="182.0" prefHeight="723.0" prefWidth="1041.0" />
+      <JFXComboBox fx:id="tri" layoutX="1101.0" layoutY="136.0" />
+      <FontAwesomeIconView fill="#ff214f" glyphName="SLIDERS" layoutX="106.0" layoutY="51.0" size="22" x="970.0" y="117.0" />
+      <JFXButton fx:id="gotopanier" layoutX="1096.0" layoutY="55.0" onAction="#TOpanier" ripplerFill="#e8aa6c" text="panier" textAlignment="CENTER" />
+   </children>
+</AnchorPane>

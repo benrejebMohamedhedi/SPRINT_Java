@@ -5,10 +5,12 @@
  */
 package gestione.shop;
 
+import Entities.Facture;
 import Entities.Produit;
 import Service.CommandeService;
 import Service.FactureService;
 import Service.Ligne_ComService;
+import Service.SendEmail;
 import Service.pdf;
 import java.io.IOException;
 import java.net.URL;
@@ -103,7 +105,7 @@ public class FacturesController implements Initializable {
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 1) {
                     try {
-                        doubleclick(event,fs.getFacturebyid(idp).getId_facture());
+                        doubleclick(event,idp);
                     } catch (SQLException ex) {
                         Logger.getLogger(FacturesController.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -117,7 +119,7 @@ public class FacturesController implements Initializable {
             public void handle(MouseEvent event) {
                 if (event.getClickCount() == 1) {
                     try {
-                        doubleclickk(event,fs.getFacturebyid(idp).getId_facture());
+                        doubleclickk(event,idp);
                     } catch (SQLException ex) {
                         Logger.getLogger(FacturesController.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -146,26 +148,12 @@ public class FacturesController implements Initializable {
                 }
       private void doubleclickk(MouseEvent event, int idp) throws SQLException {
                      if (event.getClickCount() == 1) {
-                         try {
-                
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("EmailForm.fxml"));
-                Parent root = loader.load();
-                EmailFormController DDC = loader.getController();
-               
-                DDC.sendemail(idp);
-               
-                Stage ss=new Stage();
-                Scene sc = new Scene(root);
-                ss.setScene(sc);
-                ss.setWidth(1288);
-                ss.setHeight(750);
-                
-                
-                ss.show();
-
-            } catch (IOException ex) {
-                Logger.getLogger(PanierController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                         FactureService  f= new FactureService();
+                         Facture ff= f.getFacturebyid(idp);
+                         String email=f.getEmail(idp);
+                         System.out.println(""+email);
+                         System.out.println(""+ff);
+                         SendEmail send = new SendEmail(email,"Facture", ff.toString());
           
         }
                 }

@@ -7,15 +7,15 @@ import java.util.*;
 public class SendEmail {
  
  final String senderEmail = "nizar.mejri@esprit.tn";
- final String senderPassword = null;
+ final String senderPassword = "28526044";
  final String emailSMTPserver = "smtp.tunet.tn";
  final String emailServerPort = "25";
- String receiverEmail = null;
+ final String receiverEmail = "nassim.gastli@esprit.tn";
  String emailSubject = null;
  String emailBody = null;
  
  public SendEmail(String receiverEmail, String Subject, String message) {
-        this.receiverEmail = receiverEmail;
+       // this.receiverEmail = receiverEmail;
         this.emailSubject = Subject;
         this.emailBody = message;
  
@@ -41,7 +41,7 @@ public class SendEmail {
              msg.setSubject(emailSubject);
              msg.setFrom(new InternetAddress(senderEmail));
              msg.addRecipient(Message.RecipientType.TO,
-                               new InternetAddress(receiverEmail));
+                               new InternetAddress(this.receiverEmail));
              Transport.send(msg);
              System.out.println("send successfully");
        } catch (Exception ex) {
@@ -57,3 +57,43 @@ public class SendEmail {
          }
  }
 }
+/*public void SendEmail(String email) {
+      
+           
+            String host = "smtp.gmail.com";
+            String user = "nassim.gastli@esprit.tn";
+            String pass = "doliprex@fervex";
+            String to = email;
+            String from = "nassim.gastli@esprit.tn";
+            String messageText = "This is confirmation number for your expertprogramming account. Please insert this number to activate your account = " + code + " ";
+            String subject = "Fixit Email Confirmation ";
+            boolean sessionDebug = false;
+
+            Properties props = System.getProperties();
+
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", host);
+            props.put("mail.smtp.port", "587");
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.required", "true");
+
+            java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+            Session mailSession = Session.getDefaultInstance(props, null);
+            mailSession.setDebug(sessionDebug);
+            Message msg = new MimeMessage(mailSession);
+            msg.setFrom(new InternetAddress(from));
+            InternetAddress[] address = {new InternetAddress(to)};
+            msg.setRecipients(Message.RecipientType.TO, address);
+            msg.setSubject(subject);
+            msg.setSentDate(new Date());
+            msg.setText(messageText);
+
+            javax.mail.Transport transport = mailSession.getTransport("smtp");
+            transport.connect(host, user, pass);
+            transport.sendMessage(msg, msg.getAllRecipients());
+            transport.close();
+            System.out.println("message sent successfully");
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }*/
