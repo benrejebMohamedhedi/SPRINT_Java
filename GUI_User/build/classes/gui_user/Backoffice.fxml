@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BackofficeController">
+    <stylesheets>
+        <URL value="@/styling/backoffice.css" />
+    </stylesheets>
+   <children>
+      <VBox opacity="0.96" prefHeight="500.0" prefWidth="250.0" style="-fx-background-color: #4361AD;">
+         <children>
+            <ImageView fitHeight="153.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #4361AD;" text="Home" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8_Home_32px.png" />
+                     </image></ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="163.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="250.0" style="-fx-background-color: #4361AD;" text="Clients" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8_Person_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="206.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="251.0" style="-fx-background-color: #4361AD;" text="Prestataires" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8_Person_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="249.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="250.0" style="-fx-background-color: #4361AD;" text="Sign Out" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icons8_Sign_Out_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <Label layoutX="285.0" layoutY="35.0" text="Welcome to Fixit" textFill="#424142">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

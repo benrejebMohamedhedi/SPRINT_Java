@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="GUI_User.jar" size="1577710" download="eager" />
+    <jar href="GUI_User.jar" size="1590265" download="eager" />
     <jar href="lib/activation.jar" size="124332" download="eager" />
     <jar href="lib/javax.mail-1.4.4.jar" size="495041" download="eager" />
     <jar href="lib/mysql-connector-java-5.1.23-bin.jar" size="834091" download="eager" />
