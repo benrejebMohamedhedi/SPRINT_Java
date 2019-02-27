@@ -27,11 +27,16 @@ public class User {
   private String photo_profil; 			
   private int status ;		
   private int role;
+  private int desactiver;
+  
+  
+  
   public User(){
   this.nom="";
   this.prenom="";}
-public User(String nom, String password) {
-        this.username = nom;
+  
+public User(String email, String password) {
+        this.username = email;
         this.password = password;
     }
 
@@ -79,11 +84,7 @@ public User(String nom, String password) {
         this.num_tel = num_tel;
         this.status = status;
         this.role = role;
-    }
-    
-   
-
-
+    } 
  
     public User(int id,String prenom, String nom) {
         this.id = id;
@@ -112,6 +113,37 @@ public User(String nom, String password) {
         this.adresse = adresse;
         this.num_tel = num_tel;
         this.photo_profil = photo_profil;
+    }
+
+    public User(int id, String email, String username, String password, String prenom, String nom, String cin, String sexe, LocalDate date_naissance, String adresse, String num_tel, String photo_profil, int status, int role, int desactiver) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.prenom = prenom;
+        this.nom = nom;
+        this.cin = cin;
+        this.sexe = sexe;
+        this.date_naissance = date_naissance;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.photo_profil = photo_profil;
+        this.status = status;
+        this.role = role;
+        this.desactiver = desactiver;
+    }
+
+
+    public User(int id, String email, String username, String prenom, String nom, String cin, String num_tel, int status, int desactiver) {
+        this.id = id;
+        this.email = email;
+        this.username = username;
+        this.prenom = prenom;
+        this.nom = nom;
+        this.cin = cin;
+        this.num_tel = num_tel;
+        this.status = status;
+        this.desactiver = desactiver;
     }
     
 
@@ -227,10 +259,28 @@ public User(String nom, String password) {
         this.role = role;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getDesactiver() {
+        return desactiver;
+    }
+
+    public void setDesactiver(int desactiver) {
+        this.desactiver = desactiver;
+    }
+
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", email=" + email + ", username=" + username + ", password=" + password + ", prenom=" + prenom + ", nom=" + nom + ", cin=" + cin + ", sexe=" + sexe + ", date_naissance=" + date_naissance + '}';
+        return "User{" + "id=" + id + ", email=" + email + ", username=" + username + ", password=" + password + ", prenom=" + prenom + ", nom=" + nom + ", cin=" + cin + ", sexe=" + sexe + ", date_naissance=" + date_naissance + ", adresse=" + adresse + ", num_tel=" + num_tel + ", photo_profil=" + photo_profil + ", status=" + status + ", role=" + role + ", desactiver=" + desactiver + '}';
     }
+
+    
     
 
    

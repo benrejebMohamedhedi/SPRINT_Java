@@ -5,7 +5,9 @@
  */
 package Services;
 
+import Entity.Client;
 import java.util.List;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -13,12 +15,12 @@ import java.util.List;
  */
 public interface CRUD <T>{   
     int insert(T t);
-    void Delete(T t, int id);
+    void Delete(int id);
     int update(T t);
     int SingIn(T t);
     int VerifierCompte(T t,String code);
     T chercher(int id);
-   
+    String getMd5(String mdp);
     List<T> getshow();
     
 }

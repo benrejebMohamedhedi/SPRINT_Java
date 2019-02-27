@@ -57,8 +57,8 @@
             <Label fx:id="lblSuccess" layoutX="13.0" layoutY="101.0" prefHeight="17.0" prefWidth="193.0" wrapText="true" />
             <Separator layoutX="14.0" layoutY="30.0" prefHeight="3.0" prefWidth="275.0" />
             <Separator layoutX="13.0" layoutY="91.0" prefHeight="3.0" prefWidth="275.0" />
-            <Button layoutX="12.0" layoutY="241.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="275.0" style="-fx-cursor: hand;" stylesheets="@../styling/fullpackstyling.css" text="Sign in as a host" />
-            <ImageView fitHeight="23.0" fitWidth="20.0" layoutX="72.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="btnost" layoutX="12.0" layoutY="241.0" mnemonicParsing="false" onAction="#Host" prefHeight="34.0" prefWidth="275.0" style="-fx-cursor: hand;" stylesheets="@../styling/fullpackstyling.css" text="Sign in as an administrator" />
+            <ImageView fitHeight="23.0" fitWidth="20.0" layoutX="39.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/unlock.png" />
                </image>

@@ -38,8 +38,13 @@ public class Client extends User {
         super(id, email, username, password, prenom, nom, adresse, num_tel, photo_profil);
         this.Nb_Points = Nb_Points;
     }
+    public Client(float Nb_Points, int id, String email, String username, String prenom, String nom, String cin, String num_tel, int status, int desactiver) {
+        super(id, email, username, prenom, nom,cin, num_tel,status,desactiver);
+        this.Nb_Points = Nb_Points;
+    }
     public Client(int id,String email, String username,String prenom, String nom, String adresse, String num_tel, String photo_profil) {
         super(id,email, username, prenom, nom, adresse, num_tel, photo_profil);
+        
       
     }
     
@@ -71,7 +76,7 @@ public class Client extends User {
             R.setNom(rs.getString("nom"));
             R.setPrenom(rs.getString("prenom"));
             R.setid(rs.getInt("id"));
-
+          
             return R;
         }
         return null;
@@ -89,9 +94,14 @@ public class Client extends User {
 
     @Override
     public String toString() {
-        return "Client{" + "id=" + getid() + ", email=" + getEmail() + ", username=" + getUsername() + ", password=" + getPassword() + ", prenom=" + getPrenom() + ", nom=" + getNom() + ", cin=" + getCin() + ", sexe=" + getSexe() + ", date_naissance=" + getDate_naissance() + "Nb_Points=" + Nb_Points + '}';
+        return "Client{" + "id=" + getid() + ", email=" + getEmail() + 
+                ", username=" + getUsername() + ", password=" + getPassword() + 
+                ", prenom=" + getPrenom() + ", nom=" + getNom() + ", cin=" + getCin() + 
+                ", sexe=" + getSexe() + ", date_naissance=" + getDate_naissance() + 
+                ", Status=" + getStatus() + ", Desactiver=" +getDesactiver()+ ", Nb Points=" +Nb_Points+ '}';
     }
-
+    
+    
    
     
    

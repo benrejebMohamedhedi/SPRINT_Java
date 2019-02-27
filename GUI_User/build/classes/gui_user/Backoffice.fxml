@@ -1,88 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BackofficeController">
+<AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="928.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Backoffice_Controller">
     <stylesheets>
         <URL value="@/styling/backoffice.css" />
     </stylesheets>
    <children>
-      <VBox opacity="0.96" prefHeight="500.0" prefWidth="250.0" style="-fx-background-color: #4361AD;">
-         <children>
-            <ImageView fitHeight="153.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #4361AD;" text="Home" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons8_Home_32px.png" />
-                     </image></ImageView>
-               </graphic>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <VBox.margin>
-                  <Insets left="50.0" />
-               </VBox.margin>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="163.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="250.0" style="-fx-background-color: #4361AD;" text="Clients" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons8_Person_32px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <VBox.margin>
-                  <Insets left="50.0" />
-               </VBox.margin>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="206.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="251.0" style="-fx-background-color: #4361AD;" text="Prestataires" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons8_Person_32px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <VBox.margin>
-                  <Insets left="50.0" />
-               </VBox.margin>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="249.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="250.0" style="-fx-background-color: #4361AD;" text="Sign Out" textFill="WHITE" textOverrun="CENTER_WORD_ELLIPSIS">
-               <graphic>
-                  <ImageView fitHeight="23.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/icons8_Sign_Out_32px.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <VBox.margin>
-                  <Insets left="50.0" />
-               </VBox.margin>
-            </Button>
-         </children>
-      </VBox>
-      <Label layoutX="285.0" layoutY="35.0" text="Welcome to Fixit" textFill="#424142">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
+      <TabPane layoutY="14.0" prefHeight="500.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Clients">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ScrollPane fx:id="sp" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="459.0" prefWidth="899.0">
+                                 <children>
+                                    <TableView fx:id="tableClient" prefHeight="403.0" prefWidth="641.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="10.0">
+                                      <columns>
+                                        <TableColumn fx:id="col_id" prefWidth="45.0" text="ID" />
+                                          <TableColumn fx:id="col_username" prefWidth="84.0" text="Username" />
+                                        <TableColumn fx:id="col_nom" prefWidth="81.0" text="Nom" />
+                                          <TableColumn fx:id="col_prenom" prefWidth="73.0" text="Prenom" />
+                                          <TableColumn fx:id="col_cin" prefWidth="72.0" text="CIN" />
+                                          <TableColumn fx:id="col_mail" prefWidth="178.0" text="Adresse mail" />
+                                          <TableColumn fx:id="col_num" prefWidth="75.0" text="Telephone" />
+                                          <TableColumn fx:id="col_point" prefWidth="77.0" text="Nb Points" />
+                                          <TableColumn fx:id="col_status" prefWidth="71.0" text="Enabled" />
+                                          <TableColumn fx:id="col_desactiver" prefWidth="90.0" text="Desativated" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Prestataires">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tablePrestataire" layoutX="9.0" prefHeight="439.0" prefWidth="877.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                           <columns>
+                              <TableColumn fx:id="id_p" prefWidth="43.0" text="ID" />
+                              <TableColumn fx:id="username_p" prefWidth="83.0" text="Username" />
+                              <TableColumn fx:id="nom_p" prefWidth="66.0" text="Nom" />
+                              <TableColumn fx:id="prenom_p" prefWidth="71.0" text="Prenom" />
+                              <TableColumn fx:id="cin_p" prefWidth="79.0" text="CIN" />
+                              <TableColumn fx:id="mail_p" prefWidth="184.0" text="Adresse mail" />
+                              <TableColumn fx:id="num_p" prefWidth="73.0" text="Telephone" />
+                              <TableColumn fx:id="spec_p" prefWidth="81.0" text="Specialité" />
+                              <TableColumn fx:id="etat_p" prefWidth="72.0" text="Etat" />
+                              <TableColumn fx:id="status_p" minWidth="0.0" prefWidth="64.0" text="Enabled" />
+                              <TableColumn fx:id="des_p" prefWidth="112.0" text="Desativated" />
+                           </columns>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="btnLogOut" layoutX="859.0" layoutY="2.0" mnemonicParsing="false" onAction="#Deconnexion" style="-fx-background-color: #ed4024;" text="Log Out" AnchorPane.rightAnchor="1.5" AnchorPane.topAnchor="1.5" />
    </children>
 </AnchorPane>

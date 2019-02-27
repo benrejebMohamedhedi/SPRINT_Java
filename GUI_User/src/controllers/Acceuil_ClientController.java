@@ -71,7 +71,7 @@ public class Acceuil_ClientController implements Initializable {
         // TODO
         Client R = new Client();
         us = UserSession.getInstace();
-        //System.out.println(us);
+        System.out.println(us);
         int id_user = us.getId();
         lblWelcome.setText("Welcome " + us.getNom() + " " + us.getPrenom());
 
@@ -136,6 +136,18 @@ public class Acceuil_ClientController implements Initializable {
         stage.show();
 //                Parent root = FXMLLoader.load(getClass().getResource("/gui_user/AcceuilClient.fxml"));
 //      btnSignin.getScene().setRoot(root);
+    }
+     @FXML
+    public void Desactiver(ActionEvent event) {
+        Service_Client sc = new Service_Client();
+        sc.Delete(us.getId());         
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Désactiver Compte");
+            alert.setHeaderText(null);
+    
+            alert.setContentText("Votre compte a été désactivé");
+            alert.showAndWait();
+
     }
 
 }

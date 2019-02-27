@@ -15,6 +15,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import Entity.*;
+import Services.Service_Admin;
 import Services.Service_Client;
 import Services.Service_Prestataire;
 import java.io.IOException;
@@ -61,6 +62,8 @@ public class LoginController implements Initializable {
     @FXML
     private Button btnInscription;
     UserSession US;
+    @FXML
+    private Button btnost;
 
     /**
      * Initializes the controller class.
@@ -98,18 +101,52 @@ public class LoginController implements Initializable {
     public void handleInscription() throws IOException {
         LoginController.showInscription();
     }
+     @FXML
+    public void Host(ActionEvent event) throws IOException, SQLException  {
+        String email = txtUsername.getText();
+        String password = txtPassword.getText();
+        int verif1 = 0;
+               
+        Admin C = new Admin(email, password);
+        C.setEmail(email);
+        C.setPassword(password);
+        Service_Admin SA = new Service_Admin();
 
+        verif1 = SA.SingIn(C);
+         System.out.println(verif1);
+            if (verif1 == 3){
+            String nom = "";
+            String prenom = "";
+            int id = 0;
+            US = UserSession.getInstace(nom, prenom, id);
+            US.setNom(C.Session(C).getNom());
+            US.setPrenom(C.Session(C).getPrenom());
+            US.setId(C.Session(C).getid());
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            stage.close();
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/gui_user/Backoffice.fxml")));
+            stage.setScene(scene);
+            stage.show();
+            }
+            else {
+            lblErrors.setTextFill(Color.TOMATO);
+            lblErrors.setText("Enter Correct Email/Password");
+            System.err.println("Wrong Logins --///");
+            }
+    }
     @FXML
     public void Signin(ActionEvent event) throws IOException, SQLException, InterruptedException {
         int verif = 0;
         int verif1 = 0;
-
+        
+        Service_Client ss = new Service_Client();
         String email = txtUsername.getText();
-        String password = txtPassword.getText();
+        String password = ss.getMd5(txtPassword.getText());
         Client u = new Client(email, password);
         u.setEmail(email);
         u.setPassword(password);
-        Service_Client ss = new Service_Client();
+        System.out.println(password);
 
         Prestataire C = new Prestataire(email, password);
         C.setEmail(email);
@@ -118,6 +155,7 @@ public class LoginController implements Initializable {
 
         verif1 = sp.SignIn(C);
         verif = ss.SignIn(u);
+        System.out.println(verif1);
         
         if (verif1 == 1) {
 
@@ -132,6 +170,7 @@ public class LoginController implements Initializable {
             if (result.isPresent()) {
                 System.out.println("Your code: " + result.get());
                 if (sp.VerifierCompte(C, result.get()) == 1) {
+                    
                     Alert A1 = new Alert(Alert.AlertType.CONFIRMATION);
                     A1.setTitle("Compte activé");
                     A1.setHeaderText("Compte activé");
@@ -181,7 +220,6 @@ public class LoginController implements Initializable {
             US.setNom(C.Session(C).getNom());
             US.setPrenom(C.Session(C).getPrenom());
             US.setId(C.Session(C).getid());
-            //System.out.println(US);
             Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();
             stage.close();

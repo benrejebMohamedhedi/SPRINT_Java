@@ -9,6 +9,9 @@ import Database.ConnexionDB;
 import Entity.Client;
 import Entity.Prestataire;
 import java.awt.HeadlessException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,13 +40,11 @@ public class Service_Client implements CRUD<Client> {
     }
 
     public int SignIn(Client p) throws SQLException {
-//    String databaseUsername = "";
-//    String databasePassword = "";
-
+        
         String requete = "SELECT * FROM fos_user Where PASSWORD =? and ROLEs= ? and (EMAIL = ? OR USERNAME = ?) ";
 
         pst = ConnexionDB.getCnx().prepareStatement(requete);
-        pst.setString(1, p.getPassword());
+        pst.setString(1,p.getPassword());
         pst.setInt(2, 1);
         pst.setString(3, p.getEmail());
         pst.setString(4, p.getUsername());
@@ -69,12 +72,14 @@ public class Service_Client implements CRUD<Client> {
 
     @Override
     public int insert(Client p) {
+       String md5 = getMd5(p.getPassword());
+       
         String requete = "INSERT INTO fos_user(email, username, password, prenom, nom, cin,sexe,date_naissance,adresse,num_tel,roles,enabled,Nb_Points) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             pst = ConnexionDB.getCnx().prepareStatement(requete);
             pst.setString(1, p.getEmail());
             pst.setString(2, p.getUsername());
-            pst.setString(3, p.getPassword());
+            pst.setString(3, md5);
             pst.setString(4, p.getPrenom());
             pst.setString(5, p.getNom());
             pst.setString(6, p.getCin());
@@ -96,6 +101,7 @@ public class Service_Client implements CRUD<Client> {
     }
 
     public int VerifierCompte(Client p, String code) {
+       
         try {
             String requete = "SELECT * FROM fos_user Where PASSWORD =? and ROLEs= ? and (EMAIL = ? OR USERNAME = ?) ";
             pst = ConnexionDB.getCnx().prepareStatement(requete);
@@ -117,8 +123,8 @@ public class Service_Client implements CRUD<Client> {
                     String req = "UPDATE fos_user set enabled=? where id=? ";
                     try {
                         pst2 = ConnexionDB.getCnx().prepareStatement(req);
-                        pst2.setInt(1,1);
-                        pst2.setInt(2,id);
+                        pst2.setInt(1, 1);
+                        pst2.setInt(2, id);
                         pst2.executeUpdate();
                         return 1;
                     } catch (SQLException ex) {
@@ -133,21 +139,21 @@ public class Service_Client implements CRUD<Client> {
 
         return 0;
     }
-    
+
     @Override
-    public Client chercher(int id){
+    public Client chercher(int id) {
         try {
             Client p = new Client();
             String requete = "SELECT * FROM fos_user Where id=? ";
             pst = ConnexionDB.getCnx().prepareStatement(requete);
-            pst.setInt(1,id);                     
+            pst.setInt(1, id);
             rs = pst.executeQuery();
             while (rs.next()) {
-            Client R = new Client(rs.getFloat("Nb_Points"),rs.getInt("id"),rs.getString("email"),
-            rs.getString("username"),rs.getString("password"),rs.getString("prenom"),
-            rs.getString("nom"),rs.getString("adresse"),rs.getString("num_tel"),rs.getString("photo_profil"));  
-            return R;
-        }
+                Client R = new Client(rs.getFloat("Nb_Points"), rs.getInt("id"), rs.getString("email"),
+                        rs.getString("username"), rs.getString("password"), rs.getString("prenom"),
+                        rs.getString("nom"), rs.getString("adresse"), rs.getString("num_tel"), rs.getString("photo_profil"));
+                return R;
+            }
             return p;
         } catch (SQLException ex) {
             Logger.getLogger(Service_Client.class.getName()).log(Level.SEVERE, null, ex);
@@ -155,25 +161,23 @@ public class Service_Client implements CRUD<Client> {
         return null;
     }
 
-    @Override
-    public void Delete(Client p, int id) {
-//        String requete ="delete from plante where id = ? or name = ? ";
-//        
-//              try {
-//                  pst = ConnexionDB.getCnx().prepareStatement(requete);
-//                  pst.setString(2, p.getNom());
-//                   pst.setInt(1,id);
-//                   pst.executeUpdate();
-//              } catch (SQLException ex) {
-//                  Logger.getLogger(Service_Client.class.getName()).log(Level.SEVERE, null, ex);
-//              }
+    public void Delete(int id) {
+        String req = "UPDATE fos_user set desactiver=? where id=? ";
+        try {
+            pst2 = ConnexionDB.getCnx().prepareStatement(req);
+            pst2.setInt(1, 1);
+            pst2.setInt(2, id);
+            pst2.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Service_Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
-    
     @Override
     public int update(Client p) {
-          String requete = "UPDATE fos_user set email=?, username=?,  prenom=?, nom=?, adresse=?, num_tel=? where id = ?";
+        String requete = "UPDATE fos_user set email=?, username=?,  prenom=?, nom=?, adresse=?, num_tel=? where id = ?";
         try {
             pst = ConnexionDB.getCnx().prepareStatement(requete);
             pst.setString(1, p.getEmail());
@@ -190,33 +194,65 @@ public class Service_Client implements CRUD<Client> {
             Logger.getLogger(Service_Client.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
-
     }
 
-//    @Override
-//    public List<Client> getshow() {
-//                List<Client> list = new ArrayList<>();
-//            try {
-//            String requete = "select * from User where role='Client' ";
-//            rs= ste.executeQuery(requete);
-//            while(rs.next()){
-//                list.add(new Client(rs.getInt(1), rs.getString(2),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getDate(6),rs.getDate(7),rs.getInt(8)));
-//            }
-//            }
-//            catch (SQLException ex) {
-//                Logger.getLogger(Service_Client.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            return list;
-//
-//    }
-    @Override
-    public List<Client> getshow() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ObservableList<Client> getshow() {
+
+        try {
+            ObservableList<Client> listService = FXCollections.observableArrayList();
+
+            String req = "SELECT * FROM fos_user where roles='1'";
+            pst = ConnexionDB.getCnx().prepareStatement(req);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                Client R = new Client(rs.getFloat("Nb_Points"), rs.getInt("id"), rs.getString("email"),
+                        rs.getString("username"), rs.getString("prenom"),
+                        rs.getString("nom"), rs.getString("cin"),
+                        rs.getString("num_tel"), rs.getInt("enabled"), rs.getInt("desactiver"));
+
+                listService.add(R);
+
+            }
+            return listService;
+        } catch (SQLException ex) {
+            Logger.getLogger(Service_Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
     }
 
     @Override
     public int SingIn(Client t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public String getMd5(String input) {
+        try { 
+  
+            // Static getInstance method is called with hashing MD5 
+            MessageDigest md = MessageDigest.getInstance("MD5"); 
+  
+            // digest() method is called to calculate message digest 
+            //  of an input digest() return array of byte 
+            byte[] messageDigest = md.digest(input.getBytes()); 
+  
+            // Convert byte array into signum representation 
+            BigInteger no = new BigInteger(1, messageDigest); 
+  
+            // Convert message digest into hex value 
+            String hashtext = no.toString(16); 
+            while (hashtext.length() < 32) { 
+                hashtext = "0" + hashtext; 
+            } 
+            return hashtext; 
+        }  
+  
+        // For specifying wrong message digest algorithms 
+        catch (NoSuchAlgorithmException e) { 
+            throw new RuntimeException(e); 
+        } 
+    }
+
 
 }

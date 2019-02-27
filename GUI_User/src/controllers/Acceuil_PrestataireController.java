@@ -59,27 +59,28 @@ public class Acceuil_PrestataireController implements Initializable {
     @FXML
     private Button btnLogOut;
     UserSession us;
+
     /**
      * Initializes the controller class.
-     */
+     **/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-          // TODO
+        // TODO
         Prestataire R = new Prestataire();
         us = UserSession.getInstace();
-        //System.out.println(us);
+        System.out.println(us);
         int id_user = us.getId();
         lblWelcome.setText("Welcome " + us.getNom() + " " + us.getPrenom());
 
         Afficher();
-    }    
+    }
 
     public Prestataire Chercher(int id_user) {
+        
         Prestataire R = new Prestataire();
         Service_Prestataire sc = new Service_Prestataire();
         R = sc.chercher(id_user);
-
         return R;
     }
 
@@ -106,7 +107,7 @@ public class Acceuil_PrestataireController implements Initializable {
         String num_tel = txtNum.getText();
         String photo_profil = "";
         SendMail sm = new SendMail();
-        Prestataire P = new Prestataire(us.getId(),email, username, prenom, nom, adresse, num_tel, photo_profil);
+        Prestataire P = new Prestataire(us.getId(), email, username, prenom, nom, adresse, num_tel, photo_profil);
         Service_Prestataire ss = new Service_Prestataire();
         int i = 0;
         i = ss.update(P);
@@ -122,6 +123,7 @@ public class Acceuil_PrestataireController implements Initializable {
 
     @FXML
     public void Deconnexion(ActionEvent event) throws IOException {
+        
         us = UserSession.UserSessionLogOut();
         Node node;
         node = (Node) event.getSource();
@@ -133,5 +135,17 @@ public class Acceuil_PrestataireController implements Initializable {
 
     }
 
-    
+    @FXML
+    public void Desactiver(ActionEvent event) {
+        
+        Service_Prestataire sc = new Service_Prestataire();
+        sc.Delete(us.getId());
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Désactiver Compte");
+        alert.setHeaderText(null);
+        alert.setContentText("Votre compte a été désactivé");
+        alert.showAndWait();
+
+    }
+
 }

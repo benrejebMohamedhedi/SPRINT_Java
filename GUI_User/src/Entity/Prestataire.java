@@ -48,6 +48,12 @@ public class Prestataire extends User {
     public Prestataire(int id, String email, String username, String password, String prenom, String nom, String adresse, String num_tel, String photo_profil) {
         super(id, email, username, password, prenom, nom, adresse, num_tel, photo_profil);
     }
+
+    public Prestataire(String Specialite, String Etat, int id, String email, String username, String prenom, String nom, String cin, String num_tel, int status, int desactiver) {
+        super(id, email, username, prenom, nom, cin, num_tel, status, desactiver);
+        this.Specialite = Specialite;
+        this.Etat = Etat;
+    }
     
     public Prestataire() {
     }
@@ -81,6 +87,7 @@ public class Prestataire extends User {
         return null;
 
     }
+    
 
     public String getSpecialite() {
         return Specialite;
@@ -108,7 +115,12 @@ public class Prestataire extends User {
 
     @Override
     public String toString() {
-        return "Prestataire{"+ "id=" + getid() + ", email=" + getEmail() + ", username=" + getUsername() + ", password=" + getPassword() + ", prenom=" + getPrenom() + ", nom=" + getNom() + ", cin=" + getCin() + ", sexe=" + getSexe() + ", date_naissance=" + getDate_naissance() + ", Specialite=" + getSpecialite() + ", Etat=" + getEtat() + '}';
+        return "Prestataire{"+ "id=" + getid() + ", email=" + getEmail() + 
+                ", username=" + getUsername() + ", password=" + getPassword() + 
+                ", prenom=" + getPrenom() + ", nom=" + getNom() + ", cin=" + getCin() + 
+                ", sexe=" + getSexe() + ", date_naissance=" + getDate_naissance() + 
+                ", Status=" + getStatus() + ", Desactiver=" +getDesactiver()+
+                ", Specialite=" + getSpecialite() + ", Etat=" + getEtat() + '}';
     }
   
 }

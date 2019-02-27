@@ -79,7 +79,7 @@
                               <Label text="Nombre de points:" textFill="#fffdfd" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                               <Button fx:id="btnCancel" cancelButton="true" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Cancel" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
                               <Button fx:id="btnModifier" mnemonicParsing="false" onAction="#Modifier" prefHeight="31.0" prefWidth="80.0" text="Modifier" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="9" />
-                              <Button fx:id="btnDesactiver" mnemonicParsing="false" text="Désactiver Compte" GridPane.rowIndex="9" />
+                              <Button fx:id="btnDesactiver" mnemonicParsing="false" onAction="#Desactiver" text="Désactiver Compte" GridPane.rowIndex="9" />
                               <Label text="Photo de profil:" textFill="#fffdfd" GridPane.rowIndex="1" />
                               <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
                               <Button fx:id="btnUpload" mnemonicParsing="false" text="Upload..." textFill="#424142" GridPane.halignment="CENTER" GridPane.rowIndex="6" />

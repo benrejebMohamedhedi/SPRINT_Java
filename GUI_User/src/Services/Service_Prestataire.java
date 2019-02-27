@@ -8,6 +8,9 @@ package Services;
 import Database.ConnexionDB;
 import Entity.Client;
 import Entity.Prestataire;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +18,8 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 /**
@@ -33,15 +38,13 @@ public class Service_Prestataire implements CRUD<Prestataire> {
     }
 
     public int SignIn(Prestataire p) throws SQLException {
-//    String databaseUsername = "";
-//    String databasePassword = "";
-        String requete = "SELECT * FROM fos_user Where PASSWORD =? and ROLES= ? and (EMAIL = ? OR USERNAME = ?) ";
+    String requete = "SELECT * FROM fos_user Where PASSWORD =? and ROLES= ? and (EMAIL = ? OR USERNAME = ?) ";
 
         pst = ConnexionDB.getCnx().prepareStatement(requete);
-        pst.setString(1, p.getPassword());
+        pst.setString(1,p.getPassword());
         pst.setInt(2, 2);
-        pst.setString(3, p.getEmail());
-        pst.setString(4, p.getUsername());
+        pst.setString(3,p.getEmail());
+        pst.setString(4,p.getUsername());
         rs = pst.executeQuery();
 
         boolean v = rs.next();
@@ -65,12 +68,13 @@ public class Service_Prestataire implements CRUD<Prestataire> {
 
     @Override
     public int insert(Prestataire p) {
+          String md5 = getMd5(p.getPassword());
         try {
             String requete = "INSERT INTO fos_user(email,username,password,prenom,nom,cin,sexe,date_naissance,adresse,num_tel,roles,enabled,specialite) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             pst = ConnexionDB.getCnx().prepareStatement(requete);
             pst.setString(1, p.getEmail());
             pst.setString(2, p.getUsername());
-            pst.setString(3, p.getPassword());
+            pst.setString(3, md5);
             pst.setString(4, p.getPrenom());
             pst.setString(5, p.getNom());
             pst.setString(6, p.getCin());
@@ -94,6 +98,7 @@ public class Service_Prestataire implements CRUD<Prestataire> {
     }
 
     public int VerifierCompte(Prestataire p, String code) {
+         
         try {
             String requete = "SELECT * FROM fos_user Where PASSWORD =? and ROLEs= ? and (EMAIL = ? OR USERNAME = ?) ";
             pst = ConnexionDB.getCnx().prepareStatement(requete);
@@ -152,8 +157,9 @@ public class Service_Prestataire implements CRUD<Prestataire> {
         }
         return null;
     }
-        public int update(Prestataire p) {
-          String requete = "UPDATE fos_user set email=?, username=?,  prenom=?, nom=?, adresse=?, num_tel=? where id = ?";
+
+    public int update(Prestataire p) {
+        String requete = "UPDATE fos_user set email=?, username=?,  prenom=?, nom=?, adresse=?, num_tel=? where id = ?";
         try {
             pst = ConnexionDB.getCnx().prepareStatement(requete);
             pst.setString(1, p.getEmail());
@@ -174,29 +180,78 @@ public class Service_Prestataire implements CRUD<Prestataire> {
     }
 
     //@Override
-    public void Delete(Prestataire p, int id) {
-//        String requete ="delete from plante where id = ? or name = ? ";
-//        
-//              try {
-//                  pst = ConnexionDB.getCnx().prepareStatement(requete);
-//                  pst.setString(2, p.getNom());
-//                   pst.setInt(1,id);
-//                   pst.executeUpdate();
-//              } catch (SQLException ex) {
-//                  Logger.getLogger(Serivce_Client.class.getName()).log(Level.SEVERE, null, ex);
-//              }
+    public void Delete(int id) {
+        String req = "UPDATE fos_user set desactiver=? where id=? ";
+        try {
+            pst2 = ConnexionDB.getCnx().prepareStatement(req);
+            pst2.setInt(1, 1);
+            pst2.setInt(2, id);
+            pst2.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Service_Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
+    public ObservableList<Prestataire> getshow() {
 
-    @Override
-    public List<Prestataire> getshow() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            ObservableList<Prestataire> listService = FXCollections.observableArrayList();
+
+            String req = "SELECT * FROM fos_user where roles='2'";
+            pst = ConnexionDB.getCnx().prepareStatement(req);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                Prestataire R = new Prestataire(rs.getString("specialite"), rs.getString("etat"), rs.getInt("id"), rs.getString("email"),
+                        rs.getString("username"), rs.getString("prenom"),
+                        rs.getString("nom"), rs.getString("cin"),
+                        rs.getString("num_tel"), rs.getInt("enabled"), rs.getInt("desactiver"));
+
+                listService.add(R);
+
+            }
+            return listService;
+        } catch (SQLException ex) {
+            Logger.getLogger(Service_Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
     }
 
     @Override
     public int SingIn(Prestataire t) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+       @Override
+    public String getMd5(String input) {
+        try { 
+  
+            // Static getInstance method is called with hashing MD5 
+            MessageDigest md = MessageDigest.getInstance("MD5"); 
+  
+            // digest() method is called to calculate message digest 
+            //  of an input digest() return array of byte 
+            byte[] messageDigest = md.digest(input.getBytes()); 
+  
+            // Convert byte array into signum representation 
+            BigInteger no = new BigInteger(1, messageDigest); 
+  
+            // Convert message digest into hex value 
+            String hashtext = no.toString(16); 
+            while (hashtext.length() < 32) { 
+                hashtext = "0" + hashtext; 
+            } 
+            return hashtext; 
+        }  
+  
+        // For specifying wrong message digest algorithms 
+        catch (NoSuchAlgorithmException e) { 
+            throw new RuntimeException(e); 
+        } 
+    }
+
+
 
 }
