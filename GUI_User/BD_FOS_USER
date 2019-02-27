@@ -1,0 +1,85 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Feb 27, 2019 at 10:29 PM
+-- Server version: 5.7.23
+-- PHP Version: 7.2.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `esprit`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fos_user`
+--
+
+CREATE TABLE `fos_user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(180) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `cin` varchar(8) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(180) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `roles` longtext COLLATE utf8_unicode_ci COMMENT '(DC2Type:array)',
+  `nom` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `prenom` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sexe` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `date_naissance` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `adresse` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `num_tel` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `photo_profil` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `specialite` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Nb_Points` float DEFAULT NULL,
+  `enabled` int(1) DEFAULT NULL,
+  `Desactiver` int(1) DEFAULT NULL,
+  `code` varchar(8) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `confirmation_token` varchar(180) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `salt` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email_canonical` varchar(180) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `username_canonical` varchar(180) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password_requested_at` datetime DEFAULT NULL,
+  `last_login` datetime DEFAULT NULL,
+  `Etat` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `fos_user`
+--
+
+INSERT INTO `fos_user` (`id`, `username`, `cin`, `email`, `password`, `roles`, `nom`, `prenom`, `sexe`, `date_naissance`, `adresse`, `num_tel`, `photo_profil`, `specialite`, `Nb_Points`, `enabled`, `Desactiver`, `code`, `confirmation_token`, `salt`, `email_canonical`, `username_canonical`, `password_requested_at`, `last_login`, `Etat`) VALUES
+(74, '1', '12345677', 'nacimgastli@hotmail.com', '202cb962ac59075b964b07152d234b70', '2', 'Nacim', 'Gastli', 'Homme', '2019-01-27', 'wertzu', '123456', NULL, 'Jardinier', 200, 1, 0, '16853', NULL, NULL, NULL, NULL, NULL, NULL, 'Disponible'),
+(75, 'nizou2', '13010395', 'nizar.mejri@esprit.tn', '202cb962ac59075b964b07152d234b70', '1', 'mejri', 'nizar', 'Homme', '1997-02-23', 'dvs', 'dsf', NULL, NULL, 95, 1, 0, '56312', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(76, 'jihed', '09876543', 'jihed.galai@esprit.tn', '202cb962ac59075b964b07152d234b70', '2', 'jihed', 'galai', 'Homme', '2019-01-28', 'ghjfg', '98765765', NULL, 'Menuisier', 600, 1, 0, '61449', NULL, NULL, NULL, NULL, NULL, NULL, 'NON'),
+(77, 'admin', '65748392', 'admin', 'admin', '0', 'admin', 'admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(78, 'klay', '14758541', 'mohamedhedi.benrejeb@esprit.tn', '202cb962ac59075b964b07152d234b70', '1', 'hedi', 'ben rejeb', 'Homme', '2016-02-21', 'aderfhzjuik', '123456', NULL, NULL, 0, 1, NULL, '79888', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(80, 'nacim', '55667784', 'nacimgastli@gmail.com', 'fbcc27206d2e5136ea0a79b77bea3ea5', '2', 'Nacim', 'Gastli', 'Homme', '2019-01-28', 'Rie des palmiers', '55938853', NULL, 'Plombier', NULL, 0, NULL, '32330', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `fos_user`
+--
+ALTER TABLE `fos_user`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQ_957A647992FC23A8` (`username_canonical`),
+  ADD UNIQUE KEY `UNIQ_957A6479A0D96FBF` (`email_canonical`),
+  ADD UNIQUE KEY `UNIQ_957A6479C05FB297` (`confirmation_token`),
+  ADD UNIQUE KEY `cin` (`cin`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `fos_user`
+--
+ALTER TABLE `fos_user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
