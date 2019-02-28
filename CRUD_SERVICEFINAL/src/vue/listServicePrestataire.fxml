@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.ListServicePrestataireController">
+   <children>
+      <Label layoutX="94.0" layoutY="35.0" prefHeight="101.0" prefWidth="700.0" text="Liste des Prestataires">
+         <font>
+            <Font name="Bodoni MT Condensed" size="69.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="pane" layoutX="45.0" layoutY="189.0" prefHeight="572.0" prefWidth="1176.0" />
+   </children>
+</AnchorPane>

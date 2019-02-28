@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vue.ListServiceController">
+   <children>
+      <Label layoutX="94.0" layoutY="35.0" prefHeight="101.0" prefWidth="579.0" text="Liste des Services">
+         <font>
+            <Font name="Bodoni MT Condensed" size="69.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="recherchetext" layoutX="114.0" layoutY="127.0" onKeyReleased="#RechercheDynamique" prefHeight="24.0" prefWidth="239.0" promptText="Rechercher votre Service..." />
+      <FontAwesomeIconView glyphName="SEARCH" layoutX="331.0" layoutY="147.0" size="20" wrappingWidth="24.0" />
+      <ScrollPane fx:id="pane" layoutX="45.0" layoutY="189.0" prefHeight="572.0" prefWidth="1176.0" />
+     
+      <JFXComboBox fx:id="tri" layoutX="979.0" layoutY="129.0" />
+      <FontAwesomeIconView fill="#ff214f" glyphName="SLIDERS" layoutX="-19.0" layoutY="39.0" size="22" x="970.0" y="117.0" />
+   </children>
+</AnchorPane>
